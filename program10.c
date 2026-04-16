@@ -1,7 +1,5 @@
 #include <stdio.h>
 #include <string.h>
-
-// Structure declaration
 struct Student {
     char name[50];
     int roll_no;
@@ -11,8 +9,6 @@ struct Student {
     char course[50];
     int year;
 };
-
-// Function to read data
 void readStudent(struct Student *s) {
     printf("\nEnter Name: ");
     scanf(" %[^\n]", s->name);
@@ -35,10 +31,8 @@ void readStudent(struct Student *s) {
     printf("Enter Year: ");
     scanf("%d", &s->year);
 }
-
-// Function to display data
 void displayStudent(struct Student s) {
-    printf("\n--- Student Details ---\n");
+    printf("\n Student Details \n");
     printf("Name: %s\n", s.name);
     printf("Roll No: %d\n", s.roll_no);
     printf("Mobile No: %s\n", s.mobile_no);
@@ -47,8 +41,6 @@ void displayStudent(struct Student s) {
     printf("Course: %s\n", s.course);
     printf("Year: %d\n", s.year);
 }
-
-// Function to find topper
 void findTopper(struct Student s[], int n) {
     int i, topperIndex = 0;
 
@@ -58,28 +50,21 @@ void findTopper(struct Student s[], int n) {
         }
     }
 
-    printf("\n🏆 Topper of the Class:\n");
+    printf("\n Topper of the Class:\n");
     displayStudent(s[topperIndex]);
 }
-
-// Main function
 int main() {
     struct Student students[10];
     int i;
 
-    // Read data for 10 students
     for(i = 0; i < 10; i++) {
         printf("\nEnter details of Student %d:", i + 1);
         readStudent(&students[i]);
     }
-
-    // Display all students
-    printf("\n\n===== All Students Data =====\n");
+    printf("\n All Students Data \n");
     for(i = 0; i < 10; i++) {
         displayStudent(students[i]);
     }
-
-    // Find and display topper
     findTopper(students, 10);
 
     return 0;
